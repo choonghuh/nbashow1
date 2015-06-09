@@ -3,7 +3,7 @@
 
 from socket import *
 import sys
-import zlib
+#import zlib
 from random import randint
 import os.path
 from subprocess import call
@@ -44,11 +44,12 @@ request = "GET "+filename+" HTTP/1.1\r\n\
 Host: hoopshype.com\r\n\
 Connection: keep-alive\r\n\
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n\
-User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36\r\n\Accept-Language: en-US,en;q=0.8,ko;q=0.6,ja;q=0.4\r\n\r\n"
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36\r\n\
+Accept-Language: en-US,en;q=0.8,ko;q=0.6,ja;q=0.4\r\n\r\n"
 #Accept-Encoding: gzip, deflate, sdch\r\n\
 #omg this line ^
 
-#print (request)
+print (request)
 brequest=request.encode() 	# convert unicode string to binary
 nbasock.send(brequest)		# then send to the server!
 #li='<a href="http://hoopshype.com'+li[0]+'">Player</a>\n'
@@ -97,6 +98,7 @@ while 1:
 
 print(path)
 
+htmlfd.write('<img src="'+path+'"><br>'+firstname+" "+lastname+'</img>')
 
 htmlfd.write('</body></html>')
 htmlfd.close()
